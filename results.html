@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contexte - Modélisation Numérique</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Other head elements -->
+
+    <!-- MathJax Configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        // Other configurations...
+      };
+    </script>
+
+    <!-- Load MathJax Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js" async></script>
+</head>
+
+
+
+<body class="context-background">
+    <nav>
+        <h1>Results</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="context.html">Context</a></li>
+            <li><a href="environment.html">Environment</a></li>
+            <li><a href="equations.html">Equations</a></li>
+            <li><a href="algorithm.html">Algorithm</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="text-container">
+        <p>This section presents the results after solving the Transport equation and the validation of the different steps in Prediction-Correction algorithm </p>
+        <h1>Transport Equation</h1>
+        <div class="image2">
+            <img src="./img/trans1.png" alt="./img/trans1.png">
+            <img src="./img/trans2.png" alt="./img/trans2.png">
+        </div>
+        </div>
+        
+
+        <div class="text-container">
+        <h1>Poisson Equation:</h1>
+        <p>
+            In order to validate the Poisson equation with a variable coefficient
+            $ \nabla (\alpha (x,y)\nabla u)= 0.$
+            we retained as an exact solution
+            $ u(x, y)= x^{2}+ 2x. $
+            By developing and replacing we find:
+            $ \alpha (x) = \dfrac{1}{x+1}. $
+            We can find a relative L1 error of $10^{-12}$
+            between our numerical solution and the predefined exact solution. This means that our model clearly converged.
+        </p>
+        
+        <div class="image2">
+            <img src="./img/poisson.png" alt="./img/poisson.png">
+        </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 CHP Project</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+    <title>Contexte - Modélisation Numérique</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="context-background">
+    <nav>
+        <h1>Conclusion</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="context.html">Context</a></li>
+            <li><a href="environment.html">Environment</a></li>
+            <li><a href="equations.html">Equations</a></li>
+            <li><a href="algorithm.html">Algorithm</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="text-container">
+        <p>The approach used to solve the Navier-Stokes equation and determine the velocity
+            value at the next time step, tⁿ⁺¹, involves utilizing the prediction-correction method.
+            This method is composed of the following parts:</p>
+
+        <h1>Prediction Step:</h1>
+        <p>The method begins by solving the prediction equation to find the value of the
+            intermediate velocity u*, which is defined as follows:</p>
+        <p> $$
+            \dfrac{u^{*}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{*}= -\nabla p^{*} + \dfrac{1}{Re}\Delta u^{*}.
+            $$</p>
+        
+        <h1>Poisson Equation:</h1>
+        <p>Having determined the value of u*, the value of ψ is then computed using the
+            Poisson equation, which can be expressed in the following form:</p>
+        <p>$$
+            -\nabla u^{*}=  \Delta (p^{*} -p^{n+1})= \Delta \psi.
+           $$</p>
+        
+        <h1>Correction Step:</h1>
+        <p>The velocity value uⁿ⁺¹ at time tⁿ⁺¹ is ultimately derived from the correction equation
+            as follows:</p>
+        <p>$$
+            p^{n+1}=p^{*}+ \dfrac{\rho}{\Delta t} \psi,
+           $$</p>
+        <p>$$
+            u^{n+1}=u^{*}+ \nabla \psi.
+           $$</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 CHP Project</p>
+    </footer>
+</body>
+</html>

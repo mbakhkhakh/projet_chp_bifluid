@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+    <title>Contexte - Modélisation Numérique</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Other head elements -->
+
+    <!-- MathJax Configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        // Other configurations...
+      };
+    </script>
+
+    <!-- Load MathJax Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js" async></script>
+</head>
+
+<body class="context-background">
+    <nav>
+        <h1>Environment</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="context.html">Context</a></li>
+            <li><a href="environment.html">Environment</a></li>
+            <li><a href="equations.html">Equations</a></li>
+            <li><a href="algorithm.html">Algorithm</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="text-container">
+        <h2>The NEOS Library</h2>
+        <p> This following work is based on NEOS, a C++ coded library developed by the Inria
+            MEMPHIS team. NEOS is designed with various differential operators discretized by
+            finite volumes on quadtree meshes in 2D (and octrees in 3D). Additionally, NEOS is
+            capable of massively parallel computing using MPI.</p>
+        </div>
+
+        <div class="text-container">
+        <h2>The Quadtree Meshes</h2>
+        <p> The quadtree is a highly efficient structure that operates on the principle of recursive
+            spatial subdivision, which involves breaking down a space into smaller, more
+            manageable units for analysis. At the heart of its design, each node in a quadtree
+            represents a specific spatial region. This region is then subdivided into four smaller
+            regions, allowing for more detailed analysis and efficient data retrieval. One of the
+            key properties of a quadtree is its spatial indexing capability, which, combined with its
+            adaptability to various scales of spatial data, makes it an invaluable tool in areas
+            such as geographic information systems, image processing, and computer graphics.</p>
+            <div class="image3">
+                <img src="./img/intro_quadtree.png" alt="Description de l'image">
+                <img src="./img/bitpit_logo.png" alt="Description de l'image">
+            </div>
+            <p> $\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad 
+                \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad$ 
+                Figure 2: Visual representation of a quadtree structure in spatial data partitioning.</p>
+        </div>
+        
+        <div class="text-container">
+        <h2>Advantages of Quadtree Meshes</h2>
+        <p> Quadtrees are exceptionally useful in simulations due to their ability to provide
+            adaptive mesh refinement. This feature allows for increased detail in specific regions
+            of interest within a simulation, thus enhancing accuracy where it is most crucial. In
+            addition to this, quadtrees facilitate efficient storage and retrieval of spatial data. This
+            optimization of computational resources significantly reduces processing time,
+            making these structures highly effective. Furthermore, they excel in representing
+            complex 2D and 3D geometries, which is essential for accurately modeling physical
+            spaces in simulations, thereby ensuring a high level of precision and reliability in the
+            simulated environment.</p>
+            <div class="image3">
+                <img src="./img/Control-volume-in-a-quadtree-mesh-based-on-non-staggered-grid.png" alt="Description de l'image">
+            </div>
+            <p> $\quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad
+                \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad \quad  \quad \quad$ 
+                Figure 3: Quadtree spatial indexing structure for efficient data retrieval.</p>
+        </div>
+
+    </section>
+    <footer>
+        <p>&copy; 2024 CHP Project</p>
+    </footer>
+</body>
+</html>

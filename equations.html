@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+    <title>Contexte - Modélisation Numérique</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Other head elements -->
+
+    <!-- MathJax Configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        // Other configurations...
+      };
+    </script>
+
+    <!-- Load MathJax Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js" async></script>
+</head>
+
+
+<body class="context-background">
+    <nav>
+        <h1>Equations of the Model</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="context.html">Context</a></li>
+            <li><a href="environment.html">Environment</a></li>
+            <li><a href="equations.html">Equations</a></li>
+            <li><a href="algorithm.html">Algorithm</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="conclusion.html">Conclusion</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="text-container">
+        <p>In the two-fluid model, each fluid is characterized by distinct properties, specifically density (denoted as ρ) and viscosity 
+            (denoted as μ). These fluids conform to the Navier-Stokes equations. The model is articulated through the following equations:</p>
+        <p>For the first fluid:
+            $$
+            \frac{\partial u_{1}}{\partial t}+ (u_{1}.\nabla) u_{1}= -\frac{1}{\rho_{1}}\nabla p_{1}+ \frac{1}{\rho_{1}}\nabla . \mu_{1}(\nabla u_{1}+\nabla u_{1}^{T} )+ F_{s1}
+           $$</p>
+        <p>For the second fluid:
+            $$
+            \frac{\partial u_{2}}{\partial t}+ (u_{2}.\nabla) u_{2}= -\frac{1}{\rho_{2}}\nabla p_{2}+ \frac{1}{\rho_{2}}\nabla . \mu_{2}(\nabla u_{2}+\nabla u_{2}^{T} )+ F_{s2}
+           $$</p>
+        <!-- <p>Et une en ligne: \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \)</p> -->
+        
+        <p>To address a unified problem involving both fluids,
+             a single momentum equation is derived utilizing new variables ρ and μ, represented as:</p>
+        <p>$$
+            \frac{\partial u}{\partial t}+(\mathbf{u} \cdot \nabla) u = -\frac{1}{\rho}\nabla p + \frac{1}{\rho}\nabla \cdot \mu( \nabla \mathbf{u} + \nabla \mathbf{u}^T) + F_s
+            $$</p>
+        <p>In this unified model, (ρ, μ) are spatially varying functions dependent on the specific fluid, adopting the values (ρ₁, μ₁) 
+            in the domain of the first fluid and (ρ₂, μ₂) in the domain of the second fluid. The interface between the two fluids, denoted as Γ, 
+            is precisely delineated as the zero level-set of a scalar function ϕ(x,t), mathematically expressed as:</p>
+        <p>$$
+            \Gamma = \{x \,|\, \phi(x, t) = 0\}
+           $$</p>
+        <p>The evolution of the LevelSet function ϕ is computed at each
+             time step by resolving the associated transport equation:</p>
+        <p>$$ 
+            \dfrac{\partial \phi}{\partial t} + \mathbf{u} \cdot \nabla \phi = 0
+           $$</p>
+
+        <p>Initially, $ \phi(x, t = 0) = \pm d$ is designated as the signed distance function relative to the interface. 
+            Following each computational step, the values of ρ and μ are recalculated based on the updated LevelSet using the interpolation method outlined below,
+             thereby capturing the fluid properties' spatial variations across the interface:</p>
+
+        <p>$$
+            \rho = \rho_1 + (\rho_2 - \rho_1)F(\phi) 
+           $$</p>
+        <p>$$
+            \mu = \mu_1 + (\mu_2 - \mu_1)F(\phi)
+           $$</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 CHP Project</p>
+    </footer>
+</body>
+</html>
