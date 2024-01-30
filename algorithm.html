@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
     <title>Contexte - Modélisation Numérique</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Other head elements -->
+
+    <!-- MathJax Configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        // Other configurations...
+      };
+    </script>
+
+    <!-- Load MathJax Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js" async></script>
 </head>
+
+
 <body class="context-background">
     <nav>
         <h1>Algorithm of the prediction-correction method</h1>
@@ -24,12 +41,14 @@
     <section>
         <div class="text-container">
         <p>Temporally discretized version of Navier-Stokes equation can be written in the following form: </p>
-        <p>$$
-            \dfrac{u^{n+1}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{n+1} = -\nabla p^{n+1} + \dfrac{1}{Re}\Delta u^{n+1}, \quad \quad     (1)
+        <p> $$
+            \dfrac{\mathbf{u}^{n+1}-\mathbf{u}^{n}}{\Delta t}+ (\mathbf{u} \cdot \nabla \mathbf{u})^{n}
+             = -\nabla p^{n} + \dfrac{1}{\rho}\nabla\cdot \mu \left(\nabla \mathbf{u}^{n} + (\nabla\cdot \mathbf{u}^{n})^{T}\right), \quad \quad     (1)
             $$</p>
-        <p>$$
-            \nabla u^{n+1}=0. \quad \quad   (2)
+        <p>  $$
+            \nabla \mathbf{u}^{n+1}=0. \quad \quad   (2)
             $$</p>
+
         <p>Spatially discretized versions of the coupled equations (1) and (2) are difficult to solve
             directly. Therefore, a fractional step procedure can be used to approximate the solution of
             the coupled system by first solving an analog to equation (1) for an intermediate quantity u*, and then projecting this quantity onto the space
@@ -40,19 +59,20 @@
         <p>The solution process begins with a prediction step. An intermediate velocity field, denoted 
             u*, is estimated by solving a modified version of the momentum equation defined as follows:</p>
         <p> $$
-            \dfrac{u^{*}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{*}= -\nabla p^{*} + \dfrac{1}{Re}\Delta u^{*}.
+            \dfrac{u^{*}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{n}= -\nabla p^{n} +
+             \dfrac{1}{\rho}\nabla\cdot \mu \left(\nabla \mathbf{u}^{n} + (\nabla \mathbf{u}^{n})^{T}\right).
             $$</p>
         
         <h1>Poisson Equation:</h1>
         <p>Following the prediction step, the Poisson equation is employed to compute the pressure field. This equation serves to reconcile 
-            the intermediate velocity with the incompressibility condition by introducing a pressure correction term. We define ψ as a pressure correction function, where ψ = p* -pⁿ⁺¹. 
+            the intermediate velocity with the incompressibility condition by introducing a pressure correction term. We define ψ as a pressure correction function, where  $p^{n+1}=p^{n}+ \dfrac{\rho}{\Delta t} \psi$. 
             The Poisson equation can then be expressed in the following form:</p>
         <p>$$
-            \dfrac{-\nabla u^{*}}{\Delta t}=  \Delta (p^{*} -p^{n+1})= \Delta \psi.
+            -\nabla\cdot u^{*}= \nabla\cdot (\frac{1}{\rho} \nabla \psi).
            $$</p>
         
         <h1>Correction Step:</h1>
-        <p>After updating the pression value pⁿ⁺¹= p* - ψ, the final step involves adjusting the intermediate velocity field
+        <p>After updating the pression value, the final step involves adjusting the intermediate velocity field
             with the pressure correction to obtain the velocity uⁿ⁺¹ at the next time step,
             thus ensuring both the momentum and continuity equations are satisfied: </p>
            
