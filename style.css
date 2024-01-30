@@ -121,10 +121,43 @@ section p {
     padding: 50px;
 }
 
+
+.image4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    
+    
+    /* border: 2px solid rgb(105, 122, 231); */
+}
+
+.image4 img{
+    width: 40%;
+    padding: 30px;
+}
+
+.image5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: column; */
+    
+    
+    /* border: 2px solid rgb(105, 122, 231); */
+}
+
+.image5 img{
+    width: 55%;
+    /* padding: 30px; */
+}
+
+
 .label{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
 }
 
 .title{

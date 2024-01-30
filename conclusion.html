@@ -23,33 +23,15 @@
     </nav>
     <section>
         <div class="text-container">
-        <p>The approach used to solve the Navier-Stokes equation and determine the velocity
-            value at the next time step, tⁿ⁺¹, involves utilizing the prediction-correction method.
-            This method is composed of the following parts:</p>
-
-        <h1>Prediction Step:</h1>
-        <p>The method begins by solving the prediction equation to find the value of the
-            intermediate velocity u*, which is defined as follows:</p>
-        <p> $$
-            \dfrac{u^{*}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{*}= -\nabla p^{*} + \dfrac{1}{Re}\Delta u^{*}.
-            $$</p>
-        
-        <h1>Poisson Equation:</h1>
-        <p>Having determined the value of u*, the value of ψ is then computed using the
-            Poisson equation, which can be expressed in the following form:</p>
-        <p>$$
-            -\nabla u^{*}=  \Delta (p^{*} -p^{n+1})= \Delta \psi.
-           $$</p>
-        
-        <h1>Correction Step:</h1>
-        <p>The velocity value uⁿ⁺¹ at time tⁿ⁺¹ is ultimately derived from the correction equation
-            as follows:</p>
-        <p>$$
-            p^{n+1}=p^{*}+ \dfrac{\rho}{\Delta t} \psi,
-           $$</p>
-        <p>$$
-            u^{n+1}=u^{*}+ \nabla \psi.
-           $$</p>
+        <p>
+            The project achieved several key milestones,
+             starting with the initiation of the Neos code and a thorough understanding of the discretization of 
+             operators and implementation of schemes. The Navier-Stokes equations for single-phase flow were solved using
+              the prediction-correction method, marking a significant advancement in fluid dynamics research. The project 
+              then delved into the more complex scenario of two-phase flow, necessitating modifications in the approach throughout 
+              the resolution process. A comprehensive analysis was conducted on solving the Poisson equation using the CHP method, 
+              fully leveraging the parallel computing capabilities of the Bipit library. This integrated approach facilitated effective 
+              tackling of complex fluid dynamics problems.</p>
         </div>
     </section>
     <footer>
