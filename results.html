@@ -58,7 +58,7 @@
 
 
         <div class="text-container">
-            <h1>Poisson Equation:</h1>
+            <h1>Solution of Poisson Equation:</h1>
             <p>
                 In order to validate the Poisson equation with a variable coefficient
                 $ \nabla (\alpha (x,y)\nabla u)= 0.$
@@ -79,8 +79,26 @@
                 <h4>Figure 6: Solution of 2D Poisson
                     equation where on the left u(x, y) = u(x), and on the right u(x, y) = u(y). </h4>
             </div>
+        </div>
+            
+        <div class="text-container">
+            <h1>Validation of the Explicit Discretization: </h1>
+        
+        <p>
+            To validate the implementation of the viscous term, we employed the classical Taylor-Green vortex test case:
+           $$ u_x(x, y, t) = \sin(x) \cos(y) F(t), $$
+            $$ u_y(x, y, t) = -\cos(x) \sin(y) F(t), $$
+            $$ F(t) = e^{-2 \nu t}, $$
 
-            <h1>High Performance Computing:</h1>
+            where \( x \) and \( y \) represent spatial coordinates,
+             \( t \) denotes time, and \( \nu \), the kinematic viscosity, is assumed to be \( 0.01 \).
+             The following were retained for the simulation Dirichlet boundary conditions utilizing the exact solution on all boundaries, and 
+             Neumann boundary conditions for pressure with null initialization on all boundaries.
+        </p>
+        </div>
+
+                <div class="text-container">
+            <h1>High Performance Computing: </h1>
             <p>High Performance Computing (HPC) is the use of supercomputers and parallel pro-
                 cessing techniques for solving complex computational problems. It’s essential in fields
                 requiring processing and analyzing large data sets. In the NEOS system, high-performance computing is
@@ -122,7 +140,12 @@
                 <h4>Figure 6: SpeedUp and Efficiency curves for strong scalability. </h4>
             </div>
 
-            
+            <p>The provided graphs depict the speedup and efficiency of a parallel computing system for two problem 
+            sizes (N = 200 and N = 1000) as the number of processors increases. The speedup graph shows performance gains that plateau,
+             indicating diminishing returns with more processors, especially for smaller problems. The efficiency graph reveals that larger
+              problems maintain higher efficiency over a range of processors but efficiency overall declines as more processors are added, 
+              due to the overheads associated with parallelism. 
+            These trends highlight the limits of strong scalability in parallel computing.</p>
 
         </div>
 
