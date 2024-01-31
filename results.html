@@ -93,8 +93,17 @@
             where \( x \) and \( y \) represent spatial coordinates,
              \( t \) denotes time, and \( \nu \), the kinematic viscosity, is assumed to be \( 0.01 \).
              The following were retained for the simulation Dirichlet boundary conditions utilizing the exact solution on all boundaries, and 
-             Neumann boundary conditions for pressure with null initialization on all boundaries.
+             Neumann boundary conditions for pressure with null initialization on all boundaries. the numrerical solution is obtained with the relative L1 error of $10^{-5}.$
         </p>
+        <div class="image2">
+            <img src="./img/Implcitit1.png" alt="./img/poisson.png">
+            <img src="./img/explicitt1.png" alt="./img/poisson.png">
+        </div>
+        <div class="label">
+            <h4>Figure 6: Solution with Implcitit
+                treatment (on the left) and Explicit treatment (on the right) at t = 1s using 10000 mesh
+                cells. </h4>
+        </div>
         </div>
 
                 <div class="text-container">
