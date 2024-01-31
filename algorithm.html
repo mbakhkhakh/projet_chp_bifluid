@@ -52,7 +52,9 @@
         <p>Spatially discretized versions of the coupled equations (1) and (2) are difficult to solve
             directly. Therefore, a fractional step procedure can be used to approximate the solution of
             the coupled system by first solving an analog to equation (1) for an intermediate quantity u*, and then projecting this quantity onto the space
-            of divergence-free fields to yield uⁿ⁺¹. In general, this procedure is given by:
+            of divergence-free fields to yield uⁿ⁺¹.
+            In the context of this explicit configuration, it is necessary to detail the calculations to satisfy the CFL (Courant-Friedrichs-Lewy) condition.
+             In our study, we ensured compliance with this condition by choosing a sufficiently small time step (Δt). In general, this procedure is given by:
             </p>
 
         <h1>Prediction Step:</h1>
