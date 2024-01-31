@@ -62,7 +62,24 @@
             \dfrac{u^{*}-u^{n}}{\Delta t}+ (u \cdot \nabla u)^{n}= -\nabla p^{n} +
              \dfrac{1}{\rho}\nabla\cdot \mu \left(\nabla \mathbf{u}^{n} + (\nabla \mathbf{u}^{n})^{T}\right).
             $$</p>
+
+        <p> To compute the viscosity term, the divergence theorem is used, which gives the following formula and algorithm:
+            $$\int_V \nabla\cdot( \mu\nabla \mathbf{u})  \,
+             dV = \int_S (\mu \nabla \mathbf{u_x}\cdot\mathbf{n} , \mu \nabla \mathbf{u_y}\cdot\mathbf{n}) \, dS,$$
+             $$= \sum_{\text{f} \in \{S, N, E, W\}} (\mu_f \nabla \mathbf{u_x}\cdot\mathbf{n}_{\text{f}} ,
+              \mu_f \nabla \mathbf{u_y}\cdot\mathbf{n}_{\text{f}}) S_{\text{f}}.$$
+        </p>
         
+        <h2>Algorithm: Viscous Term Update</h2>
+        <p>1:  for each interface in the grid<p>
+                <p> $\quad  2:$      Interface ID, owner and neighbor cell </p>
+                <p>$\quad  3:$      Compute $\nabla u_x$ and $\nabla u_y$</p>
+                <p> $\quad  4:$      Vertical or horizontal</p>
+                <p> $\quad  5:$      Add the contribution from $\nabla u_x$ and $\nabla u_y$ to the value at the owner cell </p>
+                <p>$\quad  6:$      Subtract the contribution of $\nabla u_x$ and $\nabla u_y$ from the value at the neighbor cell. </p>
+                <p> 7:  end for</p>
+
+
         <h1>Poisson Equation:</h1>
         <p>Following the prediction step, the Poisson equation is employed to compute the pressure field. This equation serves to reconcile 
             the intermediate velocity with the incompressibility condition by introducing a pressure correction term. We define ψ as a pressure correction function, where  $p^{n+1}=p^{n}+ \dfrac{\rho}{\Delta t} \psi$. 
